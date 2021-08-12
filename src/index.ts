@@ -1,7 +1,5 @@
-import { Base } from './task'
-import jsonData from '@data/data.json'
+import { generateHuman } from './task'
 
-const a = new Base()
+const human = generateHuman()
 
-console.log(jsonData)
-console.log(a.name)
+console.log(human)
