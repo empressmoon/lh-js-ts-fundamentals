@@ -1,8 +1,10 @@
-import Base from "../"
+import snakeCase from "../../task/index"
+import { testCases } from "../index"
 
-describe("some tests",() => {
-    test("some test case", () => {
-        const a = new Base()
-        expect(a.name).toBe('Base')
+describe("snakeCase",() => {
+    test.each(testCases)("returns snake cased string", (input, output) => {
+        const result = snakeCase(input)
+
+        expect(result).toEqual(output)
     })
 })
