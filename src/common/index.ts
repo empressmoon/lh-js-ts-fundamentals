@@ -1,6 +1,6 @@
 export const MAX_STARS = 5
 
-export enum starValue {
+export enum StarVariant {
     EMPTY = "empty",
     FULL = "full",
     HALF = "half",
