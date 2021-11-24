@@ -14,22 +14,17 @@ export function starRating1(value: string): string {
         throw Error(errorMessage)
     }
 
-    const starsArray: string[] = Array(MAX_STARS).fill(StarVariant.FULL)
+    if (number > MAX_STARS) {
+        throw Error(errorMessage)
+    }
 
     const roundedNumber = Math.round(number * 2) / 2
-
-    if (roundedNumber >= MAX_STARS) {
-        return starsArray.join(" ")
-    }
 
     const fullStars = Math.trunc(roundedNumber)
     const emptyStars = Math.trunc(MAX_STARS - roundedNumber)
     const halfStars = fullStars + emptyStars === MAX_STARS ? 0 : 1
 
-
-    if (fullStars) {
-        starsArray.fill(StarVariant.FULL, 0, fullStars - 1)
-    }
+    const starsArray: string[] = Array(MAX_STARS).fill(StarVariant.FULL)
 
     if (halfStars) {
         starsArray.fill(StarVariant.HALF, fullStars, fullStars + 1)
@@ -49,21 +44,17 @@ export function starRating2(value: string): string {
         throw Error(errorMessage)
     }
 
-    let stars: string
+    if (number > MAX_STARS) {
+        throw Error(errorMessage)
+    }
 
     const roundedNumber = Math.round(number * 2) / 2
-
-    if (roundedNumber >= MAX_STARS) {
-        stars = `${StarVariant.FULL} `.repeat(MAX_STARS).trim()
-
-        return stars
-    }
 
     const fullStars = Math.trunc(roundedNumber)
     const emptyStars = Math.trunc(MAX_STARS - roundedNumber)
     const halfStars = fullStars + emptyStars === MAX_STARS ? 0 : 1
 
-    stars = `${`${StarVariant.FULL} `.repeat(fullStars)}${`${StarVariant.HALF} `.repeat(halfStars)}${`${StarVariant.EMPTY} `.repeat(emptyStars)}`.trim()
+    const stars = `${`${StarVariant.FULL} `.repeat(fullStars)}${`${StarVariant.HALF} `.repeat(halfStars)}${`${StarVariant.EMPTY} `.repeat(emptyStars)}`.trim()
 
     return stars
 }

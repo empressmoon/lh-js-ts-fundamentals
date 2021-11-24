@@ -6,7 +6,7 @@ export enum StarVariant {
     HALF = "half",
 }
 
-export const errorMessage = "Value is not a valid number"
+export const errorMessage = "Value is not a valid rating number"
 
 export const testCases: [string, string][] = [
     [
@@ -30,10 +30,6 @@ export const testCases: [string, string][] = [
         "full empty empty empty empty",
     ],
     [
-        "6.25",
-        "full full full full full",
-    ],
-    [
         "0",
         "empty empty empty empty empty",
     ],
@@ -46,6 +42,10 @@ export const errorTestCases: [string, string][] = [
     ],
     [
         "hello",
+        errorMessage,
+    ],
+    [
+        `${MAX_STARS + 0.1}`,
         errorMessage,
     ],
 ]
