@@ -1,13 +1,52 @@
-"use-strict"
+// interface ImageGalleryImpl {
+//     init: () => void
+//     addListeners: () => void
+//     toggleClass: (cell: HTMLElement) => void
+// }
 
-function imageClickHandler() {
-    const clickedImage = this
+// class ImageGallery implements ImageGalleryImpl {
+//     cells: NodeListOf<HTMLElement>
 
-    clickedImage.classList.toggle("active")
+//     constructor () {
+//         this.cells = document.querySelectorAll(".cell")
+//     }
+
+//     init = () => {
+//         this.addListeners()
+//     }
+
+//     addListeners = () => {
+//         this.cells.forEach((cell) => {
+//             cell.addEventListener("click", () => this.toggleClass(cell))
+//         })
+//     }
+
+//     toggleClass = (cell: HTMLElement) => {
+//         cell.classList.toggle("active")
+//     }
+// }
+
+class ImageGallery {
+    cells
+
+    constructor () {
+        this.cells = document.querySelectorAll(".cell")
+    }
+
+    init = () => {
+        this.addListeners()
+    }
+
+    addListeners = () => {
+        this.cells.forEach((cell) => {
+            cell.addEventListener("click", () => this.toggleClass(cell))
+        })
+    }
+
+    toggleClass = (cell) => {
+        cell.classList.toggle("active")
+    }
 }
 
-const cells = document.querySelectorAll(".cell")
-
-cells.forEach((cell) => {
-    cell.addEventListener("click", imageClickHandler)
-})
+const imageGallery = new ImageGallery()
+imageGallery.init()
