@@ -1,0 +1,26 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto Mono', Courier, monospace;
+    font-size: 1em;
+}
+
+.scrollable-container {
+    background-color: #f6efe2;
+    overflow: auto;
+}
+
+.box {
+    background-color: #27a4aa;
+    margin: 40px auto;
+    height: 200px;
+    width: 50%;
+}
+
+.box[data-next-page] {
+    background-color: pink;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
