@@ -1,0 +1,1 @@
+export type FindPhraseInArrayResult = [number, string][] | string
